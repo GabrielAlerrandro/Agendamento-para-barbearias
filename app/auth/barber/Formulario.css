@@ -9,17 +9,11 @@
 
 :root {
   --primary-color: #906af7;
-  /* --secundary-color: #172031; */
   --secundary-color: #172031;
   --text-color-dark: #bdc3c7;
   --text-color-light: #fcf8f8;
   --icon-color: #2d3243;
   --dark-theme: #172031;
-  /* --test: #8161ff */
-  --test: hsl(252, 100%, 69%)
-  --pom: #2d3243;
-  --aa: hsl(225, 62%, 12%);
-  --bb: hsl(226, 61%, 15%);
 }
 .icon-modify {
   padding: 0 5px;

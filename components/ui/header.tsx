@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { signIn, signOut, useSession } from "next-auth/react"
+import { signOut, useSession } from "next-auth/react"
 import {
   CalendarIcon,
   HomeIcon,
@@ -28,11 +28,7 @@ const Header = () => {
 
   const { data } = useSession()
   const handleLoginClick = async () => {
-    // await signIn("google")
     router.push("/auth/barber")
-  }
-  const handleTeste = async () => {
-    await signIn("credentials")
   }
 
   const handleLogoutClick = () => signOut()
@@ -96,7 +92,6 @@ const Header = () => {
                   {data.user.isBarber && (
                     <Button variant="outline" className="justify-start" asChild>
                       <Link href={`/barbers/${data.user.barbershopID}`}>
-                        {/* <Bolt size={18} className="mr-2"></Bolt> */}
                         <Settings size={18} className="mr-2"></Settings>
                         Gerenciar
                       </Link>
@@ -115,7 +110,7 @@ const Header = () => {
               </Button>
               <Button
                 className="capitalize rounded-xl hover:bg-white hover:text-primary"
-                onClick={handleTeste}
+                onClick={handleLoginClick}
               >
                 sou barbeiro
               </Button>

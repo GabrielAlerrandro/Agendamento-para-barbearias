@@ -192,7 +192,7 @@ const ServiceItem = ({
 
   const handleBookingClick = () => {
     if (!isAuthenticated) {
-      return signIn()
+      return signIn("credentials")
     }
   }
 
@@ -279,7 +279,6 @@ const ServiceItem = ({
                     <Button
                       disabled={!hour || !date || loading}
                       onClick={handleBookingSubmit}
-                      // onClick={handleCheckout}
                     >
                       {loading && (
                         <Loader2 className="mr-2 h-4 w-4 animate-spin"></Loader2>
