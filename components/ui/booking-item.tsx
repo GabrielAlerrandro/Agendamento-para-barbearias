@@ -96,7 +96,7 @@ const BookingItem = ({ booking }: BookingItemProps) => {
         </SheetHeader>
         <div className="px-5">
           <div className="relative h-[180px] w-full mt-6 ">
-            <Image src="" alt={booking.barbershop.name} fill></Image>
+            <Image  src={booking.barbershop.imageUrl} alt={booking.barbershop.name} fill></Image>
             <div className="w-full absolute bottom-4 left-0 px-5">
               <Card>
                 <CardContent className="p-3 flex gap-2">

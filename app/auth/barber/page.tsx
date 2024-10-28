@@ -39,6 +39,7 @@ const Formulario = () => {
   const [isRegistering, setIsRegistering] = useState(false)
   const [isBarber, setIsBarber] = useState(false)
   const [barbershops, setBarbershops] = useState<Barbershop[]>([])
+  const [loginError, setLoginError] = useState("")
 
   const { register: registerLogin, handleSubmit: handleSubmitLogin } =
     useForm<LoginFormData>()
@@ -68,7 +69,9 @@ const Formulario = () => {
 
     if (result?.error) {
       console.error("Login error:", result.error)
+      setLoginError("Email ou senha incorretos.") // Define a mensagem de erro
     } else {
+      setLoginError("") // Limpa a mensagem de erro se o login for bem-sucedido
       router.push("/")
     }
   }
@@ -148,7 +151,7 @@ const Formulario = () => {
             </div>
             <p className="form-text">ou utilize sua conta</p>
             <div className="form-input-container">
-              <div className="pao">
+              <div className="class-input">
                 <FaEnvelope />
                 <input
                   type="email"
@@ -157,7 +160,7 @@ const Formulario = () => {
                   {...registerLogin("email", { required: true })}
                 />
               </div>
-              <div className="pao">
+              <div className="class-input">
                 <FaLock />
                 <input
                   type="password"
@@ -167,11 +170,12 @@ const Formulario = () => {
                 />
               </div>
             </div>
-            <a href="#" className="form-link">
+            <span className="error-message p-0 m-0">{loginError}</span>{" "}
+            <a href="#" className="form-link my-2">
               Esqueceu a senha?
             </a>
             <button type="submit" className="form-button">
-              Criar Conta
+              Entrar
             </button>
             <p className="mobile-text">
               Não tem conta?{" "}

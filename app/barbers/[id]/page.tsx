@@ -54,7 +54,7 @@ const BarbershopPage = async ({ params }: paramsProp) => {
   return (
     <div className="mt-6">
       <h2 className="text-sm uppercase text-gray-400 font-bold mb-3 pl-5">
-        agendamentos
+        agendamentos para hoje
       </h2>
       {confirmedBookings.length > 0 ? (
         <>
