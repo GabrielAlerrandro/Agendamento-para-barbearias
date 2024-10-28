@@ -1,0 +1,8 @@
+.custom-result {
+  .ant-result-title {
+    color: white !important;
+  }
+  .ant-result-subtitle {
+    color: white !important;
+  }
+}
