@@ -4,7 +4,6 @@ import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
 import { authOptions } from "@/lib/auth"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { ptBR } from "date-fns/locale"
 import { format } from "date-fns"
 
 interface paramsProp {
@@ -87,9 +86,7 @@ const BarbershopPage = async ({ params }: paramsProp) => {
                           }).format(Number(booking.service.price))}
                         </p>
                         <p className="text-primary text-sm font-bold">
-                          {format(booking.date, "k':'mm", {
-                            locale: ptBR,
-                          })}
+                          {format(booking.date, "k':'mm")}
                         </p>
                       </div>
                       <div className="flex items-center mt-1">
