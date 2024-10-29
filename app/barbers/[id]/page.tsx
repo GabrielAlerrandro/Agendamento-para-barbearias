@@ -86,7 +86,7 @@ const BarbershopPage = async ({ params }: paramsProp) => {
                           }).format(Number(booking.service.price))}
                         </p>
                         <p className="text-primary text-sm font-bold">
-                          {format(booking.date, "k':'mm")}
+                          {format(booking.date, "hh':'mm")}
                         </p>
                       </div>
                       <div className="flex items-center mt-1">
