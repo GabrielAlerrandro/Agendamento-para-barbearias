@@ -7,6 +7,7 @@ import { db } from "../../lib/prisma"
 import BarbershopItem from "./components/barbershop-item"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
+import Search from "@/components/ui/search"
 
 export default async function Home() {
   const session = await getServerSession(authOptions)
@@ -31,6 +32,9 @@ export default async function Home() {
   return (
     <div>
       <Header></Header>
+      <div className="px-5 mt-2 flex items-center justify-center  ">
+        <Search barbershops={barbershops}></Search>
+      </div>
       <div className="px-5 pt-5">
         <h2 className="text-xl font-bold">
           {session?.user
@@ -66,8 +70,6 @@ export default async function Home() {
               key={barbershop.id}
             ></BarbershopItem>
           ))}
-
-          {/* <BarbershopList barbershops={barbershop}></BarbershopList> */}
         </div>
       </div>
     </div>
