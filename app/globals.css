@@ -36,6 +36,36 @@
   }
 }
 
+/* Adiciona a scrollbar personalizada globalmente */
+::-webkit-scrollbar {
+  width: 8px; /* Largura da barra de rolagem vertical */
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent; /* Cor de fundo da track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--primary)); /* Cor principal do thumb */
+  border-radius: 9999px; /* Tornar o thumb arredondado */
+  transition: background-color 0.3s ease; /* Efeito de transição */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(
+    var(--primary-foreground)
+  ); /* Cor do thumb ao passar o mouse */
+}
+
+/* Opcional: Scrollbar horizontal */
+::-webkit-scrollbar-horizontal {
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb-horizontal {
+  background-color: hsl(var(--primary)); /* Cor do thumb horizontal */
+  border-radius: 9999px;
+}
 @layer base {
   * {
     @apply border-border;
