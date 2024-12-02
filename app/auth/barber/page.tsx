@@ -69,9 +69,9 @@ const Formulario = () => {
 
     if (result?.error) {
       console.error("Login error:", result.error)
-      setLoginError("Email ou senha incorretos.") // Define a mensagem de erro
+      setLoginError("Email ou senha incorretos.")
     } else {
-      setLoginError("") // Limpa a mensagem de erro se o login for bem-sucedido
+      setLoginError("")
       router.push("/")
     }
   }
@@ -193,14 +193,12 @@ const Formulario = () => {
             <h2 className="form-title">Criar Conta</h2>
             <div className="form-social">
               <a href="#" className="social-icon">
-                {/* <i className="fab fa-facebook-f"></i> */}
                 <FaFacebookF />
               </a>
               <a href="#" className="social-icon">
                 <FaGoogle />
               </a>
               <a href="#" className="social-icon">
-                {/* <i className="fab fa-linkedin-in"></i> */}
                 <FaLinkedinIn />
               </a>
             </div>
@@ -208,7 +206,6 @@ const Formulario = () => {
             <div className="form-input-container">
               <label className="flex flex-row items-center justify-center gap-1">
                 <FaUser />
-                {/* <i className="far fa-user icon-modify"></i> */}
                 <input
                   type="text"
                   className="form-input"
@@ -217,7 +214,6 @@ const Formulario = () => {
                 />
               </label>
               <label className="flex flex-row items-center justify-center gap-1">
-                {/* <i className="far fa-envelope icon-modify"></i> */}
                 <FaEnvelope />
                 <input
                   type="email"
@@ -227,7 +223,6 @@ const Formulario = () => {
                 />
               </label>
               <label className="flex flex-row items-center justify-center gap-1">
-                {/* <i className="fa-regular fa-lock"></i> */}
                 <FaLock />
                 <input
                   type="password"

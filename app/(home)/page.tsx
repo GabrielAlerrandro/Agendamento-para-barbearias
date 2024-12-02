@@ -8,10 +8,11 @@ import BarbershopItem from "./components/barbershop-item"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import Search from "@/components/ui/search"
+import SupportButton from "./components/support-button"
 
 export default async function Home() {
   const session = await getServerSession(authOptions)
-
+  const phoneNumber = "5511999999999"
   const [barbershops, confirmedBookings] = await Promise.all([
     db.barbershop.findMany({}),
     session?.user
@@ -31,9 +32,10 @@ export default async function Home() {
   ])
   return (
     <div>
-      <Header></Header>
+      <Header />
+      <SupportButton phoneNumber={phoneNumber} />
       <div className="px-5 mt-2 flex items-center justify-center  ">
-        <Search barbershops={barbershops}></Search>
+        <Search barbershops={barbershops} />
       </div>
       <div className="px-5 pt-5">
         <h2 className="text-xl font-bold">
@@ -65,10 +67,7 @@ export default async function Home() {
         </h2>
         <div className="flex px-5 gap-4 overflow-x-auto  [&::-webkit-scrollbar]:hidden">
           {barbershops.map((barbershop) => (
-            <BarbershopItem
-              barbershop={barbershop}
-              key={barbershop.id}
-            ></BarbershopItem>
+            <BarbershopItem barbershop={barbershop} key={barbershop.id} />
           ))}
         </div>
       </div>
