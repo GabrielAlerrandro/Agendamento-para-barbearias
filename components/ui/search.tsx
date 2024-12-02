@@ -3,17 +3,22 @@ import { useState } from "react"
 import { SearchIcon } from "lucide-react"
 import { Button } from "./button"
 import { Input } from "./input"
-import Link from "next/link" // Importando o Link do Next.js
-import Image from "next/image" // Usando o Image para otimização
+import Link from "next/link" 
+import Image from "next/image" 
+import { Barbershop } from "@prisma/client"
 
-const Search = ({ barbershops }) => {
+interface SearchProps {
+  barbershops: Barbershop[]; 
+}
+
+const Search = ({ barbershops }: SearchProps) => {
   const [searchTerm, setSearchTerm] = useState("")
 
   const filteredBarbershops = searchTerm
     ? barbershops.filter((barbershop) =>
         barbershop.name.toLowerCase().includes(searchTerm.toLowerCase())
       )
-    : [] // Se não houver pesquisa, exibe todas as barbearias
+    : [] 
 
   return (
     <div className="flex flex-col items-center gap-4 w-1/2">
@@ -21,32 +26,28 @@ const Search = ({ barbershops }) => {
         <Input
           placeholder="Busque por uma barbearia..."
           value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)} // Atualiza o estado de busca
+          onChange={(e) => setSearchTerm(e.target.value)} 
         />
         <Button variant="default" size="icon">
           <SearchIcon size={20} />
         </Button>
       </div>
 
-      {/* Exibe as barbearias filtradas ou todas, dependendo da busca */}
       <div className="flex flex-col gap-4 mt-4 w-full">
-        {/* Adicionando scroll personalizado */}
         <div className="max-h-96 overflow-y-auto scrollbar-thin scrollbar-thumb-primary scrollbar-track-transparent">
           {filteredBarbershops.map((barbershop) => (
             <Link href={`/barbershop/${barbershop.id}`} key={barbershop.id}>
               <div className="flex items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-[225, 9%, 9%]">
-                {/* Imagem da barbearia à esquerda */}
                 <div className="flex-shrink-0 w-16 h-16 mr-4 flex items-center justify-center">
                   <Image
-                    src={barbershop.imageUrl || "/default-image.jpg"} // Fallback de imagem
+                    src={barbershop.imageUrl || "/default-image.jpg"} 
                     alt={barbershop.name}
-                    width={64} // Tamanho da imagem (largo)
-                    height={64} // Tamanho da imagem (alto)
-                    className="object-cover rounded-md" // Garantir que a imagem seja quadrada
+                    width={64} 
+                    height={64} 
+                    className="object-cover rounded-md" 
                   />
                 </div>
 
-                {/* Texto à direita da imagem */}
                 <div className="flex-1">
                   <h3 className="font-semibold text-lg text-primary">
                     {barbershop.name}
