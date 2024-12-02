@@ -31,9 +31,9 @@ export default async function Home() {
   ])
   return (
     <div>
-      <Header></Header>
+      <Header/>
       <div className="px-5 mt-2 flex items-center justify-center  ">
-        <Search barbershops={barbershops}></Search>
+        <Search barbershops={barbershops}/>
       </div>
       <div className="px-5 pt-5">
         <h2 className="text-xl font-bold">
